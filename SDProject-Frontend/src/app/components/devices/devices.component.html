@@ -1,0 +1,22 @@
+<app-header></app-header>
+<p class="heading-message">Hi {{ currentUser.name}}, these are your devices </p>
+<div class="cards-container">
+    <div *ngFor="let device of currentDevices" class="card">
+        <mat-card class="device-card">
+            <mat-card-header>
+              <mat-card-subtitle>Device</mat-card-subtitle>
+              <mat-card-title>{{ device.description }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>{{ device.address }}</p>
+              <p>Max. hourly energy consumption: {{ device.maxhourec }}</p>
+              <mat-divider></mat-divider>
+            </mat-card-content>
+            <!-- <mat-card-actions>
+              <button mat-button>EDIT</button>
+              <button mat-button>DELETE</button>
+            </mat-card-actions> -->
+          </mat-card>
+    </div>
+  </div>
+
