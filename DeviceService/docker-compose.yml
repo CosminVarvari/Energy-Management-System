@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  database-deviceservice:  # Set a custom container name for the database
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: device_microservice
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data-user:/var/lib/mysql
+
+  application-deviceservice:  # Set a custom container name for the service
+    build: .
+    ports:
+      - "8081:8081"
+    depends_on:
+      - database-deviceservice
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database-deviceservice:3306/device_microservice
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD:
+
+volumes:
+  mysql-data-user:

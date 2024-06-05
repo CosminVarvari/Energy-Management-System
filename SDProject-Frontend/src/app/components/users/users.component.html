@@ -1,0 +1,68 @@
+<app-header></app-header>
+<div class="user">
+  <div class="user-header">
+    <div class="user-header-title">
+      <span>Users</span>
+      <button (click)="openDialogAdd()" mat-fab color="accent" aria-label="add">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let elem of userDeviceDict" class="expansion-panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{elem.user.name}} </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="ep-container">
+          <div class="inputs">
+            <!-- <mat-form-field>
+              <mat-label>Name</mat-label>
+              <input matInput value="{{elem.user.name}}">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Username</mat-label>
+              <input matInput value="{{elem.user.username}}">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Email</mat-label>
+              <input matInput value="{{elem.user.email}}">
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>About</mat-label>
+              <textarea matInput value="{{elem.user.about}}"></textarea>
+            </mat-form-field> -->
+            <p>Name: {{ elem.user.name }}</p>
+            <p>Username: {{ elem.user.username }}</p>
+            <p>Email: {{ elem.user.email }}</p>
+            <p>About: {{ elem.user.about }}</p>
+            <div class="user-buttons">
+              <button  mat-raised-button color="primary"
+                class="user-button" (click)="openDialogEditUser(elem.user)"><mat-icon>edit</mat-icon>Edit</button>
+              <button mat-raised-button color="warn" (click)="openDialogDeleteUser(elem.user.userId)">
+                <mat-icon>delete</mat-icon>Delete</button>
+            </div>
+            <p class="device-title">Devices</p>
+            <button (click)="openDialogAddDevice(elem.user.userId)" mat-raised-button color="primary" class="device-button">
+              <mat-icon>add</mat-icon> Add Device</button>
+          </div>
+          <div *ngFor="let device of elem.devices" class="card">
+            <mat-card class="device-card">
+              <mat-card-header>
+                <mat-card-subtitle>Device</mat-card-subtitle>
+                <mat-card-title>{{ device.description }}</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <p>{{ device.address }}</p>
+                <p>Max. hourly energy consumption: {{ device.maxhourec }}</p>
+                <mat-divider></mat-divider>
+              </mat-card-content>
+              <mat-card-actions>
+                <button mat-button (click)="openDialogEditDevice(device)">EDIT</button>
+                <button mat-button (click)="openDialogDelete(device.deviceId)">DELETE</button>
+              </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

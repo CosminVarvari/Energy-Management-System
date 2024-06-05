@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  application-chatservice:  # Set a custom container name for the service
+    build: .
+    ports:
+      - "8086:8086"

@@ -1,0 +1,95 @@
+@startuml
+
+title __USER's Class Diagram__
+
+package "User Module" {
+
+  package "Controller" {
+    namespace controller {
+      class UserController {
+        + deleteUser()
+        + get()
+        + getUser()
+        + getUserByUsername()
+        + login()
+        + register()
+        + save()
+      }
+    }
+  }
+
+  package "Service" {
+    namespace service {
+      class UserService {
+        - passwordEncoder : PasswordEncoder
+        + delete()
+        + get()
+        + getUserById()
+        + getUserByUsername()
+        + login()
+        + register()
+        + save()
+      }
+    }
+    service.UserService --> "Repository" : userRepository
+  }
+
+  package "Repository" {
+    repository.UserRepository --> service.UserService : userRepository
+  }
+
+  package "Model" {
+    namespace model {
+      enum Role {
+        ADMIN
+        USER
+      }
+
+      class User {
+        - id : Long
+        - password : String
+        - username : String
+        + User()
+        + getId()
+        + getPassword()
+        + getRole()
+        + getUsername()
+        + setId()
+        + setPassword()
+        + setRole()
+        + setUsername()
+      }
+    }
+    model.User --> Role : role
+  }
+
+  package "DTO" {
+    namespace dto {
+      class UserAuthenticationDTO {
+        - password : String
+        - username : String
+        + getPassword()
+        + getUsername()
+        + setPassword()
+        + setUsername()
+      }
+
+      class UserDTO {
+        - id : Long
+        - password : String
+        - username : String
+        + getId()
+        + getPassword()
+        + getRole()
+        + getUsername()
+        + setId()
+        + setPassword()
+        + setRole()
+        + setUsername()
+      }
+    }
+    dto.UserDTO --> model.Role : role
+  }
+}
+
+@enduml

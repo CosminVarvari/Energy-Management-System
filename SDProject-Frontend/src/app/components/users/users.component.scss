@@ -1,0 +1,80 @@
+.user {
+    &-card {
+        width: 350px;
+        margin-bottom: 40px;
+        margin-right: 40px;
+        .align-end {
+            align-self: flex-end;
+        }
+        .restrict-height {
+            height: 200px;
+            overflow-y: scroll;
+        }
+    }
+    &-wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+    &-header {
+        margin-left: 150px;
+        margin-right: 150px;
+        padding: 50px 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        &-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    .expansion-panel {
+        width: 100%;
+    }
+
+    mat-accordion {
+        width: 100%;
+    }
+
+    .device-card {
+        margin-bottom: 20px;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .device-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .device-button {
+        width: 20%;
+        margin-bottom: 20px;
+        
+    }
+
+    .user-buttons {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        justify-content: flex-end;
+    }
+
+    .user-button {
+        margin-right: 20px;
+    }
+}

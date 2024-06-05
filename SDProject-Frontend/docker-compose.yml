@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  angular:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile # Numele fișierului Dockerfile pentru Angular
+    ports:
+      - "4200:4200" # Maparea portului 80 al containerului Angular pe portul 4200 al gazdei
+    networks:
+      backendservices:
+        ipv4_address: 172.30.0.10 # Adresa IP pentru serviciul Angular
+    environment:
+      - BACKENDUSER=172.30.0.3 # Adresă IP pentru backend
+      - BACKENDDEVICE=172.30.0.2 # Adresă IP pentru backend
+      # Alte variabile de mediu pentru configurarea Angular
+
+networks:
+  backendservices:
+    external: true

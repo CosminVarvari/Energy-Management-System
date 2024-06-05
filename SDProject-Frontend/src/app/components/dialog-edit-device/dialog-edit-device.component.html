@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Edit Device</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="deviceForm" class="edit-form">
+    <mat-form-field class="input-field">
+      <mat-label for="address">Address</mat-label>
+      <input id="address" type="text" formControlName="address" matInput />
+    </mat-form-field>
+    <mat-form-field class="input-field">
+      <mat-label for="maxhourec">Max. hour energy consumption</mat-label>
+      <input id="maxhourec" type="text" formControlName="maxhourec" matInput />
+    </mat-form-field>
+    <mat-form-field class="input-field description">
+      <mat-label for="description">Description</mat-label>
+      <textarea
+        id="description"
+        type="text"
+        formControlName="description"
+        matInput
+      ></textarea>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    (click)="onSubmit()"
+    cdkFocusInitial
+  >
+  Submit
+  </button>
+</mat-dialog-actions>

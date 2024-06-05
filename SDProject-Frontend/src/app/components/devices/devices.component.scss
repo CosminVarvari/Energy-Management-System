@@ -1,0 +1,21 @@
+.cards-container {
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.device-card {
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.heading-message {
+    font-size: 20px;
+    font-family: 'Fira Sans';
+    margin-top: 25px;
+    margin-left: 40px;
+    margin-bottom: 15px;
+}
