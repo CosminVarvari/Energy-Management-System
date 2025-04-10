@@ -1,6 +1,5 @@
 # Energy-Management-System
 =======
-# DS2023_30243_Varvari_Cosmin-Ionut_Assignment_1
 
 
 # Project Setup Guide
